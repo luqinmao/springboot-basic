@@ -1,7 +1,7 @@
 package com.lqm.dao;
 
 
-import com.lqm.dao.model.UmsPermission;
+import com.lqm.model.pojo.UmsPermission;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

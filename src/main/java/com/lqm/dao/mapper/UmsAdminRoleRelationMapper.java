@@ -1,7 +1,7 @@
 package com.lqm.dao.mapper;
 
-import com.lqm.dao.model.UmsAdminRoleRelation;
-import com.lqm.dao.model.UmsAdminRoleRelationExample;
+import com.lqm.model.pojo.UmsAdminRoleRelation;
+import com.lqm.model.pojo.UmsAdminRoleRelationExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

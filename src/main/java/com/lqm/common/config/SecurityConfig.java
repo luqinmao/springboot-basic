@@ -1,11 +1,11 @@
 package com.lqm.common.config;
 
-import com.lqm.component.JwtAuthenticationTokenFilter;
-import com.lqm.component.RestAuthenticationEntryPoint;
-import com.lqm.component.RestfulAccessDeniedHandler;
-import com.lqm.dao.model.UmsAdmin;
-import com.lqm.dao.model.UmsPermission;
-import com.lqm.dto.AdminUserDetails;
+import com.lqm.component.security.JwtAuthenticationTokenFilter;
+import com.lqm.component.security.RestAuthenticationEntryPoint;
+import com.lqm.component.security.RestfulAccessDeniedHandler;
+import com.lqm.model.dto.AdminUserDetails;
+import com.lqm.model.pojo.UmsAdmin;
+import com.lqm.model.pojo.UmsPermission;
 import com.lqm.service.UmsAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

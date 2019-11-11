@@ -1,8 +1,8 @@
 package com.lqm.service;
 
 
-import com.lqm.dao.model.UmsAdmin;
-import com.lqm.dao.model.UmsPermission;
+import com.lqm.model.pojo.UmsAdmin;
+import com.lqm.model.pojo.UmsPermission;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.lqm.dao.mapper;
 
-import com.lqm.dao.model.PmsProductAttribute;
-import com.lqm.dao.model.PmsProductAttributeExample;
+import com.lqm.model.pojo.PmsProductAttribute;
+import com.lqm.model.pojo.PmsProductAttributeExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

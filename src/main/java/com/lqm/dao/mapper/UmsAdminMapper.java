@@ -1,7 +1,7 @@
 package com.lqm.dao.mapper;
 
-import com.lqm.dao.model.UmsAdmin;
-import com.lqm.dao.model.UmsAdminExample;
+import com.lqm.model.pojo.UmsAdmin;
+import com.lqm.model.pojo.UmsAdminExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
