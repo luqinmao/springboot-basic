@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * Druid 配置类
  * 访问：127.0.0.1:8080/druid/login.html
  */
-//@Configuration
+@Configuration
 public class DruidConfig {
 
     @Bean

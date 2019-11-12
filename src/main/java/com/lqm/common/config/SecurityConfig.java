@@ -66,13 +66,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/admin/login", "/admin/register")// 对登录注册要允许匿名访问
                 .permitAll()
-//                //TODO 临时，开放所有接口，需要删掉此代码
-                .antMatchers("/*")// 临时，开放所有接口
-                .permitAll()
                 .antMatchers("/esProduct/**","/member/readHistory/**","/order/**","/aliyun/oss/**","/sso/**")// 测试时放开
                 .permitAll()
                 .anyRequest()// 除上面外的所有请求全部需要鉴权认证
-                .authenticated();
+//                .authenticated();
+                .permitAll(); //TODO 临时开放所有接口，需删掉
         // 禁用缓存
         httpSecurity.headers().cacheControl();
         // 添加JWT filter
