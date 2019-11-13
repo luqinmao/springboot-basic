@@ -1,5 +1,6 @@
 package com.lqm.nosql.mongodb.document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -8,7 +9,9 @@ import java.util.Date;
 
 /**
  * 用户商品浏览历史记录
- * Created by macro on 2018/8/3.
+ @Document:标示映射到Mongodb文档上的领域对象
+ @Id:标示某个域为ID域
+ @Indexed:标示某个字段为Mongodb的索引字段
  */
 @Document
 public class MemberReadHistory {
@@ -24,6 +27,7 @@ public class MemberReadHistory {
     private String productPic;
     private String productSubTitle;
     private String productPrice;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
     public String getId() {

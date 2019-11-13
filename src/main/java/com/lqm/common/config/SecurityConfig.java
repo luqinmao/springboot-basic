@@ -69,8 +69,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/esProduct/**","/member/readHistory/**","/order/**","/aliyun/oss/**","/sso/**")// 测试时放开
                 .permitAll()
                 .anyRequest()// 除上面外的所有请求全部需要鉴权认证
+                .permitAll(); //TODO 临时开放所有接口 ， controller类添加@PreAuthorize的仍然会需要认证
 //                .authenticated();
-                .permitAll(); //TODO 临时开放所有接口，需删掉
         // 禁用缓存
         httpSecurity.headers().cacheControl();
         // 添加JWT filter

@@ -27,8 +27,8 @@ public class JacksonConfig {
         ObjectMapper objectMapper = builder.createXmlMapper(false).build();
 
         //对象的所有字段全部列入
-//        objectMapper.setSerializationInclusion(JsonInclude.Include.ALWAYS);
-        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
+        objectMapper.setSerializationInclusion(JsonInclude.Include.ALWAYS);
+//        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
         //取消默认转换timestamps形式
         objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,false);
         //忽略空Bean转json的错误
