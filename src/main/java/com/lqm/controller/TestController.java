@@ -12,14 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "TestController", description = "测试用例")
 @RestController
 @RequestMapping("/test")
-public class TestController {
+public class TestController extends BaseController{
 
     @Autowired
     private UmsAdminMapper adminMapper;
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     public String test(){
-        return "hello";
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer
+                .append("request.getRequestURL():"+request.getRequestURL() +"\n")
+                .append("getToken: "+getToken() +"\n")
+                .append("getClientIP: "+getClientIP() +"\n")
+                .append("getRequestParam: "+getRequestParam(request) +"\n")
+                .append("getPageInFo: "+getPageInFo().toString() +"\n")
+        ;
+        return stringBuffer.toString();
     }
 
     @ApiOperation("测试接口2")
