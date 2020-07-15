@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.json.JSONUtil;
 import com.lqm.common.utils.JsonUtil;
+import com.lqm.controller.BaseController;
 import com.lqm.model.dto.WebLog;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.java.Log;
@@ -24,10 +25,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 统一日志处理切面
@@ -54,16 +52,29 @@ public class WebLogAspect {
 
         //url
         log.info("url: " + request.getRequestURL());
-
-        //method
-        log.info("method: " + request.getMethod());
-
-        //ip
-        log.info("ip: " + request.getRemoteAddr());
-
         //class method
         log.info("class.method: " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-
+        //method
+        log.info("method: " + request.getMethod());
+        //ip
+        log.info("ip: " + request.getRemoteAddr());
+        //参数
+        Map<String,Object> map = new HashMap<String,Object>();
+        Enumeration paramNames = request.getParameterNames();
+        while (paramNames.hasMoreElements()) {
+            String paramName = (String) paramNames.nextElement();
+            String[] paramValues = request.getParameterValues(paramName);
+            if (paramValues.length >0) {
+                String paramValue = paramValues[0];
+                if (paramValue.length() != 0) {
+                    map.put(paramName, paramValue);
+                }
+            }
+        }
+        Set<Map.Entry<String, Object>> set = map.entrySet();
+        for (Map.Entry entry : set) {
+            log.info("请求参数："+entry.getKey() + ":" + entry.getValue());
+        }
         //args
         for(Object object : joinPoint.getArgs()){
             if(null != object){
@@ -105,13 +116,14 @@ public class WebLogAspect {
         webLog.setStartTime(startTime);
         webLog.setUri(request.getRequestURI());
         webLog.setUrl(request.getRequestURL().toString());
-//        log.info(JsonUtil.obj2String(webLog));
-
 
         log.info("===========================  response  ==================================");
         log.info(" ");
-        log.info("response: " + JsonUtil.obj2StringPretty(webLog.getResult()));
+        log.info("response: "+JsonUtil.obj2String(webLog));
         log.info(" ");
+        log.info("\n"+JsonUtil.obj2StringPretty(webLog.getResult()));
+        log.info(" ");
+        log.info("===========================  response  ==================================");
 
         return result;
     }
