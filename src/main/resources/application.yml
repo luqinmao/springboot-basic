@@ -62,6 +62,7 @@ mybatis:
     - classpath:mapper/*.xml
     - classpath*:com/**/mapper/*.xml
 
+
 # 自定义redis key
 redis:
   key:
@@ -91,3 +92,7 @@ aliyun:
     dir:
       prefix: springboot-basic/images/  # 上传文件夹路径前缀
 
+#打印sql日志
+logging:
+  level:
+    com.lqm.dao: debug
