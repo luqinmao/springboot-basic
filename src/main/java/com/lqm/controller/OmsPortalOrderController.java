@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Created by macro on 2018/8/30.
  */
 @Controller
-@Api(tags = "OmsPortalOrderController", description = "订单管理")
+@Api(value = "OmsPortalOrderController", tags = "订单管理")
 @RequestMapping("/order")
 public class OmsPortalOrderController {
     @Autowired

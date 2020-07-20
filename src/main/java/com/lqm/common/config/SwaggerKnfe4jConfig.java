@@ -1,7 +1,10 @@
 package com.lqm.common.config;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -22,7 +25,9 @@ import java.util.List;
  */
 @Configuration
 @EnableSwagger2
-public class Swagger2Config {
+@EnableKnife4j
+@Import(BeanValidatorPluginsConfiguration.class)
+public class SwaggerKnfe4jConfig {
     @Bean
     public Docket createRestApi(){
         return new Docket(DocumentationType.SWAGGER_2)
@@ -41,7 +46,7 @@ public class Swagger2Config {
         return new ApiInfoBuilder()
                 .title("SwaggerUI演示")
                 .description("springboot-basic")
-                .contact("macro")
+                .contact("luqinmao")
                 .version("1.0")
                 .build();
     }

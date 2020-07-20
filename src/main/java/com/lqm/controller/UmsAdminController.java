@@ -22,7 +22,7 @@ import java.util.Map;
  * Created by macro on 2018/4/26.
  */
 @Controller
-@Api(tags = "UmsAdminController", description = "后台用户管理")
+@Api(value = "UmsAdminController", tags = "后台用户管理")
 @RequestMapping("/admin")
 public class UmsAdminController {
     @Autowired
@@ -57,7 +57,7 @@ public class UmsAdminController {
         return CommonResult.success(tokenMap);
     }
 
-    @ApiOperation("获取用户所有权限（包括+-权限）")
+    @ApiOperation(value = "获取用户所有权限（包括+-权限）")
     @RequestMapping(value = "/permission/{adminId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<UmsPermission>> getPermissionList(@PathVariable Long adminId) {

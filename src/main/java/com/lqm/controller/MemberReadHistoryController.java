@@ -16,7 +16,7 @@ import java.util.List;
  * Created by macro on 2018/8/3.
  */
 @Controller
-@Api(tags = "MemberReadHistoryController", description = "会员商品浏览记录管理")
+@Api(value = "MemberReadHistoryController", tags = "会员商品浏览记录管理")
 @RequestMapping("/member/readHistory")
 public class MemberReadHistoryController {
     @Autowired
